@@ -37,7 +37,7 @@ export function scoreProduct(p: Product, query: string): number {
   score += fieldHits(p.brand, qt) * 4;
   score += fieldHits(p.subcategory, qt) * 3;
   score += fieldHits(p.keywords.join(" "), qt) * 3;
-  if (catIds.includes(p.category)) score += 6;
+  if (catIds.includes(p.category)) score += 12;
   return score;
 }
 
