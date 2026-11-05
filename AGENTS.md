@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture
+- Storefront is frontend-only: all products, categories and demo settings live in `src/lib/shop/` (single mock data source + `config.ts`); shared cart/wishlist/search state is in `src/lib/shop/store.tsx`. Why: the brief forbids backend/API; one source keeps search, filters and recommendations in sync.

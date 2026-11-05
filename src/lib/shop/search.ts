@@ -12,7 +12,7 @@ function tokens(s: string) {
 
 function fieldHits(field: string, qTokens: string[]) {
   const f = tokens(field);
-  return qTokens.filter((q) => f.some((w) => w.startsWith(q) || q.startsWith(w) && w.length > 2)).length;
+  return qTokens.filter((q) => f.some((w) => w.startsWith(q))).length;
 }
 
 /** Categories whose name matches the whole query (e.g. "women's clothing"). */
@@ -37,7 +37,7 @@ export function scoreProduct(p: Product, query: string): number {
   score += fieldHits(p.brand, qt) * 4;
   score += fieldHits(p.subcategory, qt) * 3;
   score += fieldHits(p.keywords.join(" "), qt) * 3;
-  if (catIds.includes(p.category)) score += 6;
+  if (catIds.includes(p.category)) score += 12;
   return score;
 }
 
@@ -69,7 +69,7 @@ export function seededShuffle<T>(arr: T[], seed: number): T[] {
   };
   for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(rand() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
+    const tmp = out[i] as T; out[i] = out[j] as T; out[j] = tmp;
   }
   return out;
 }
