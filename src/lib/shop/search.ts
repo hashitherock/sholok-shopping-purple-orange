@@ -12,7 +12,7 @@ function tokens(s: string) {
 
 function fieldHits(field: string, qTokens: string[]) {
   const f = tokens(field);
-  return qTokens.filter((q) => f.some((w) => w.startsWith(q) || q.startsWith(w) && w.length > 2)).length;
+  return qTokens.filter((q) => f.some((w) => w.startsWith(q))).length;
 }
 
 /** Categories whose name matches the whole query (e.g. "women's clothing"). */
