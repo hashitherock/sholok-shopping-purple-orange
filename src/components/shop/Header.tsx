@@ -85,7 +85,7 @@ function ProductSearch() {
     if (e.key === "ArrowDown") { e.preventDefault(); setActive((a) => (a + 1) % suggestions.length); }
     if (e.key === "ArrowUp") { e.preventDefault(); setActive((a) => (a <= 0 ? suggestions.length - 1 : a - 1)); }
     if (e.key === "Escape") setOpen(false);
-    if (e.key === "Enter" && active >= 0) { e.preventDefault(); openProduct(suggestions[active].id); setOpen(false); }
+    if (e.key === "Enter" && active >= 0) { e.preventDefault(); openProduct(suggestions[active]!.id); setOpen(false); }
   };
 
   return (

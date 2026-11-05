@@ -24,14 +24,14 @@ export type Product = {
   regularPrice: number;
   sellingPrice: number;
   discountPercentage: number;
-  rating?: number;
-  reviewCount?: number;
+  rating?: number | undefined;
+  reviewCount?: number | undefined;
   inStock: boolean;
   keywords: string[];
-  isTrending?: boolean;
-  isNewArrival?: boolean;
-  isFlashSale?: boolean;
-  isFeatured?: boolean;
+  isTrending?: boolean | undefined;
+  isNewArrival?: boolean | undefined;
+  isFlashSale?: boolean | undefined;
+  isFeatured?: boolean | undefined;
 };
 
 const cdn = (path: string) => `https://cdn.dummyjson.com/product-images/${path}/thumbnail.webp`;

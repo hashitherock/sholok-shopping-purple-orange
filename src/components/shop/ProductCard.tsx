@@ -100,9 +100,9 @@ export function ProductDetailDialog() {
               <div className="mt-auto flex flex-wrap items-center gap-3 pt-2">
                 {cart[product.id] ? (
                   <div className="flex items-center rounded-lg border border-border">
-                    <button onClick={() => setQty(product.id, cart[product.id] - 1)} aria-label="Decrease quantity" className="p-2.5 hover:bg-muted"><Minus className="size-4" /></button>
+                    <button onClick={() => setQty(product.id, (cart[product.id] ?? 0) - 1)} aria-label="Decrease quantity" className="p-2.5 hover:bg-muted"><Minus className="size-4" /></button>
                     <span className="w-8 text-center font-semibold" aria-live="polite">{cart[product.id]}</span>
-                    <button onClick={() => setQty(product.id, cart[product.id] + 1)} aria-label="Increase quantity" className="p-2.5 hover:bg-muted"><Plus className="size-4" /></button>
+                    <button onClick={() => setQty(product.id, (cart[product.id] ?? 0) + 1)} aria-label="Increase quantity" className="p-2.5 hover:bg-muted"><Plus className="size-4" /></button>
                   </div>
                 ) : (
                   <button disabled={!product.inStock} onClick={() => addToCart(product.id)} className="flex h-11 flex-1 items-center justify-center gap-2 rounded-lg bg-primary px-5 font-semibold text-primary-foreground hover:bg-primary-deep disabled:opacity-50">

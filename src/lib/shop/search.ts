@@ -69,7 +69,7 @@ export function seededShuffle<T>(arr: T[], seed: number): T[] {
   };
   for (let i = out.length - 1; i > 0; i--) {
     const j = Math.floor(rand() * (i + 1));
-    [out[i], out[j]] = [out[j], out[i]];
+    const tmp = out[i] as T; out[i] = out[j] as T; out[j] = tmp;
   }
   return out;
 }
