@@ -12,4 +12,17 @@ export default defineConfig({
     // nitro/vite builds from this
     server: { entry: "server" },
   },
+  // Pre-bundle UI deps so the dev server doesn't re-optimize mid-session (stale React copy crash).
+  vite: {
+    optimizeDeps: {
+      include: [
+        "@radix-ui/react-dropdown-menu",
+        "@radix-ui/react-dialog",
+        "@radix-ui/react-tabs",
+        "embla-carousel-react",
+        "sonner",
+        "lucide-react",
+      ],
+    },
+  },
 });
